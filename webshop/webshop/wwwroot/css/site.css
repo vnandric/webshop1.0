@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  font-family: Arial;
 }
 
 @media (min-width: 768px) {
@@ -14,5 +15,48 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+nav {
+    height: 50px;
+    width: 100vw;
+    background-color: black;
+}
+
+ul {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+li {
+    color: white;
+    display: flex;
+    margin: 10px;
+    font-size: 1.2rem;
+}
+
+li:hover {
+    color: cyan;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* about */
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.about > p {
+    max-width: 1300px;
 }
