@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.Sqlite;
 
@@ -14,6 +15,13 @@ namespace webshop.Pages
         public IndexModel(IWebHostEnvironment webHostEnvironment)
         {
             _uploadFolderPath = Path.Combine(webHostEnvironment.WebRootPath, "uploads");
+        }
+
+        [Authorize]
+        public IActionResult OnPostLogout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToPage("/Index");
         }
 
         public IActionResult OnGet()

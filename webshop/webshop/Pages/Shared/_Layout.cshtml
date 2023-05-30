@@ -9,16 +9,45 @@
 </head>
 <body>
     <header>
-        <div>
+        @{
+            var username = Context.Request.HttpContext.Session.GetString("Username");
+        }
 
+        <div>
+            @if (!string.IsNullOrEmpty(username))
+            {
+                <form method="post" asp-page="Index" asp-page-handler="logout">
+                    <button type="submit">Logout</button>
+                </form>
+            }
         </div>
         <nav>
             <ul>
+                <li>
+                    <a href="Index">Home</a>
+                </li>
                 <li>About us</li>
                 <li>Producten</li>
                 <li>Contact</li>
+                <li>
+                    <a href="Inlog">Inloggen</a>
+                </li>
+                <li>
+                    <a href="Admin">Admin</a>
+                </li>
             </ul>
-        </nav>        
+        </nav>   
+        @if (!string.IsNullOrEmpty(username))
+        {
+            <nav>
+                <ul>
+                    <li>
+                        <a href="upload">Upload product</a>
+                    </li>
+                </ul>                
+            </nav>
+            
+        }
     </header>
 
     <div class="container">

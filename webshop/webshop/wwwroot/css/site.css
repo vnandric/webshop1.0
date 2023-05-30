@@ -41,6 +41,11 @@ li:hover {
     cursor: pointer;
 }
 
+li a {
+    text-decoration: none;
+    color: white;
+}
+
 /* about */
 
 .about {
@@ -57,7 +62,9 @@ li:hover {
 }
 
 .main {
+    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }

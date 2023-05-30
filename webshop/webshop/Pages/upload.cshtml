@@ -1,0 +1,19 @@
+﻿@page
+@model webshop.Pages.uploadModel
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<div class="main">
+    <h1>Upload product</h1>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div>@Model.ErrorMessage</div>
+    }
+
+    <form>
+
+    </form>
+</div>
+

@@ -1,0 +1,23 @@
+﻿@page
+@model webshop.Pages.AdminModel
+
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@inject IModelExpressionProvider ModelExpressionProvider
+
+<style>
+
+</style>
+
+<div class="main">
+    <form method="post">
+        <div>
+            <label for="username" class="">username:</label>
+            <input type="text" id="username" asp-for="Username"/>
+        </div>
+        <div>
+            <label for="password" class="">password:</label>
+            <input type="password" id="password" asp-for="Password" />
+        </div>
+        <button typeof="submit" class="">Login</button>
+    </form>
+</div>
