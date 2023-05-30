@@ -249,6 +249,10 @@
       "PackagePath": "staticwebassets\\media\\main.png"
     },
     {
+      "Id": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\foto.png",
+      "PackagePath": "staticwebassets\\uploads\\foto.png"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.webshop.props",
       "PackagePath": "build\\webshop.props"
     },

@@ -1,5 +1,5 @@
 ﻿@page
-@model IndexModel
+@model webshop.Pages.IndexModel
 @{
     ViewData["Title"] = "Dev Needs";
 }
@@ -17,8 +17,14 @@
         </p>
     </div>
 
-    <div class="producten">
-
-
+    <div class="main">
+        <div class="container">
+            @foreach (var product in Model.Producten)
+            {                
+                <img src="uploads/@product.img">
+                <div>@product.naam</div>
+                <div>@product.prijs</div>
+            }
+        </div>
     </div>
 </div>

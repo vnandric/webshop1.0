@@ -9,11 +9,6 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   margin: 0;
   overflow-x: hidden;
@@ -59,4 +54,10 @@ li:hover {
 
 .about > p {
     max-width: 1300px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
