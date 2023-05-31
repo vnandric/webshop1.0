@@ -6,20 +6,110 @@
     <title>@ViewData["Title"] - webshop</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/webshop.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
+<style>
+    .head-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .head {
+        width: 80vw;
+        height: 100px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: -10px;
+    }
+
+    .left label {
+        font-size: 2rem;
+    }
+
+    .bar-container {
+        display: flex;
+    }
+
+    .bar-container div {
+        width: 45px;
+        height: 40px;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .bar-container input {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border: 1.5px solid black;
+        width: 350px;
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        width: 20vw;
+    }
+
+    .l-container a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    .right form button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+</style>
+
 <body>
     <header>
         @{
             var username = Context.Request.HttpContext.Session.GetString("Username");
         }
 
-        <div>
-            @if (!string.IsNullOrEmpty(username))
-            {
+        <div class="head-container">
+            <div class="head">
+                <div class="left">
+                    <label>DevNeeds</label>
+                </div>
+
+                <div class="middle">
+                    <div class="bar-container">
+                        <input type="text"/>
+                        <div type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="right">                
+
+                @if (!string.IsNullOrEmpty(username))
+                {
                 <form method="post" asp-page="Index" asp-page-handler="logout">
-                    <button type="submit">Logout</button>
+                        <button type="submit">Logout<i class="fa-solid fa-right-to-bracket" style="color: #000000; margin-left: 2.5px;"></i></button>
                 </form>
-            }
+                }
+                else
+                {
+                    <div class="l-container">
+                        <a href="Inlog">Log In<i class="fa-solid fa-right-to-bracket" style="color: #000000; margin-left: 2.5px;"></i></a>                        
+                    </div>
+                }
+            </div>
+            
         </div>
         <nav>
             <ul>
@@ -29,9 +119,6 @@
                 <li>About us</li>
                 <li>Producten</li>
                 <li>Contact</li>
-                <li>
-                    <a href="Inlog">Inloggen</a>
-                </li>
                 <li>
                     <a href="Admin">Admin</a>
                 </li>

@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\media\\magnifying-glass-solid.svg",
+      "PackagePath": "staticwebassets\\media\\magnifying-glass-solid.svg"
+    },
+    {
       "Id": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\media\\main.png",
       "PackagePath": "staticwebassets\\media\\main.png"
     },
