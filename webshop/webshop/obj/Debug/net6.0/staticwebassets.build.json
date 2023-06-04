@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+phD+wKffFU/+8i10sZSGBKwS42Wxo5rEIzd2AL28t8=",
+  "Hash": "c5myS6Ah6+gsHUgfeiFzf9Z4DlXh6EVFt9ViRGkLuIQ=",
   "Source": "webshop",
   "BasePath": "_content/webshop",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\media\\main.png"
+    },
+    {
+      "Identity": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\6fff740c-9236-4c7f-a00f-1ab1a4396706.jpg",
+      "SourceId": "webshop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\",
+      "BasePath": "_content/webshop",
+      "RelativePath": "uploads/6fff740c-9236-4c7f-a00f-1ab1a4396706.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\6fff740c-9236-4c7f-a00f-1ab1a4396706.jpg"
     },
     {
       "Identity": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\foto.png",
