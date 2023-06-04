@@ -71,12 +71,18 @@
         cursor: pointer;
         font-size: 1.2rem;
     }
+
+    .welkom {
+        font-size: 1.2rem;
+        margin-right: 5px;
+    }
 </style>
 
 <body>
     <header>
         @{
             var username = Context.Request.HttpContext.Session.GetString("Username");
+            var customerName = Context.Request.HttpContext.Session.GetString("CustomerName");
         }
 
         <div class="head-container">
@@ -92,15 +98,24 @@
                     </div>
                 </div>
 
-                
+
             </div>
             <div class="right">                
-
                 @if (!string.IsNullOrEmpty(username))
                 {
-                <form method="post" asp-page="Index" asp-page-handler="logout">
-                        <button type="submit">Logout<i class="fa-solid fa-right-to-bracket" style="color: #000000; margin-left: 2.5px;"></i></button>
-                </form>
+                    <div class="welkom">Welkom @username</div>
+                }
+                
+                @if(!string.IsNullOrEmpty(customerName))
+                {
+                    <div class="welkom">Welkom @customerName</div>
+                }
+
+                @if (!string.IsNullOrEmpty(username) || !string.IsNullOrEmpty(customerName))
+                {                    
+                    <form method="post" asp-page="Index" asp-page-handler="logout">
+                            <button type="submit">Logout<i class="fa-solid fa-right-to-bracket" style="color: #000000; margin-left: 2.5px;"></i></button>
+                    </form>
                 }
                 else
                 {
@@ -116,9 +131,15 @@
                 <li>
                     <a href="Index">Home</a>
                 </li>
-                <li>About us</li>
-                <li>Producten</li>
-                <li>Contact</li>
+                <li>
+                    <a href="#about">About us</a>
+                </li>
+                <li>
+                    <a href="#producten">Producten</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
                 <li>
                     <a href="Admin">Admin</a>
                 </li>

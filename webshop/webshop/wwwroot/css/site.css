@@ -29,21 +29,20 @@ ul {
 }
 
 li {
-    color: white;
     display: flex;
     margin: 10px;
     font-size: 1.2rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 li:hover {
     color: cyan;
     transition: 0.3s;
     cursor: pointer;
-}
-
-li a {
-    text-decoration: none;
-    color: white;
 }
 
 /* about */

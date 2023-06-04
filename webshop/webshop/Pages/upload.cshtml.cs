@@ -14,12 +14,12 @@ namespace webshop.Pages
         private readonly string _uploadFolderPath;
 
         [BindProperty]
-        public IFormFileCollection UploadedFiles { get; set; }
+        public IFormFileCollection Img { get; set; }
 
         [BindProperty]
         [Required(ErrorMessage = "The Evenement field is required.")]
 
-        public string Evenement { get; set; }
+        public string PT_naam { get; set; }
 
         public string ErrorMessage { get; set; }
 

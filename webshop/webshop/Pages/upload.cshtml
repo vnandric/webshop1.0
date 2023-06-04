@@ -12,8 +12,26 @@
         <div>@Model.ErrorMessage</div>
     }
 
-    <form>
-
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <input type="hidden" id="ID" name="ID"/>
+        </div>
+        <div>
+            <label for="PT_naam">Type:</label>
+            <input type="text" id="PT_naam" name="PT_Naam" required>
+        </div>
+        <div>
+            <label for="prijs">prijs:</label>
+            <input type="number" id="prijs" name="Prijs" required>
+        </div>
+        <div>
+            <label for="img">Select Photo:</label>
+            <input type="file" id="img" name="Img" multiple required>
+        </div>
+        <div>
+            <label for="naam">Naam product:</label>
+            <input type="text" id="naam" name="Naam" required>
+        </div>
     </form>
 </div>
 

@@ -1,5 +1,27 @@
 ﻿@page
 @model webshop.Pages.InlogModel
-@{
-    ViewData["Title"] = "Inlog"; 
-}
+
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@inject IModelExpressionProvider ModelExpressionProvider
+
+<style>
+
+</style>
+
+<div class="main">
+    <form method="post">
+        <div>
+            <label for="username" class="">username:</label>
+            <input type="text" id="username" asp-for="CustomerName" />
+        </div>
+        <div>
+            <label for="password" class="">password:</label>
+            <input type="password" id="password" asp-for="Password" />
+        </div>
+        <button typeof="submit" class="">Login</button>
+    </form>
+
+    <div>
+        <p>Nog geen account? <a href="Register">Registreer</a></p>
+    </div>
+</div>
