@@ -31,7 +31,7 @@ namespace webshop.Pages
                 connection.Open();
 
                 var selectCommand = connection.CreateCommand();
-                selectCommand.CommandText = "SELECT ID, PT_naam, prijs, img, naam FROM product";
+                selectCommand.CommandText = "SELECT * FROM product";
 
                 var producten = new List<ProductModel>();
 
@@ -39,13 +39,14 @@ namespace webshop.Pages
                 {
                     while (reader.Read())
                     {
-                        var product = new ProductModel
+                        var product = new ProductModel()
                         {
                             ID = reader.GetString(0),
                             PT_naam = reader.GetString(1),
                             prijs = reader.GetString(2),
-                            img = reader.GetString(3),
-                            naam = reader.GetString(4)
+                            img = reader.GetString(3),                            
+                            naam = reader.GetString(4),
+                            FilePath = reader.GetString(5)
                         };
 
                         producten.Add(product);
@@ -63,8 +64,13 @@ namespace webshop.Pages
         public string ID { get; set; }
         public string PT_naam { get; set; }
         public string prijs { get; set; }
+
         public string img { get; set; }
+        
         public string naam { get; set; }
+
+        public string FilePath { get; set; }
+
 
     }
 }

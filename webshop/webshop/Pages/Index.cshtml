@@ -29,7 +29,7 @@
         <div class="container">
             @foreach (var product in Model.Producten)
             {                
-                <img src="uploads/@product.img">
+                <img src="@product.FilePath">
                 <div>@product.naam</div>
                 <div>@product.prijs</div>
             }
