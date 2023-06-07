@@ -12,7 +12,7 @@
         <div>@Model.ErrorMessage</div>
     }
 
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" asp-page-handler="Form1">
         <div>
             <label for="PT_naam">Type:</label>
             <select asp-for="PT_naam" required>
@@ -37,5 +37,39 @@
 
         <button type="submit">Upload</button>
     </form>
+
+    <h1>Add product type</h1>
+
+    <form method="post" asp-page-handler="Form2">
+        <div>
+            <label for="productType">Product type:</label>
+            <input type="text" id="productType" asp-for="ProductType"/>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h1>Edit and delete product types</h1>
+
+    <div>
+        <table>
+            @foreach (var type in Model.Types)
+            {
+            <tr>
+                    <td><label>@type.ProductT</label></td>
+                    <td>
+                        <form method="post" asp-page-handler="Update">
+                            <div>
+                                <input type="text" id="type" asp-for="Type"/>
+                                <input type="hidden" value="@type.ProductT" asp-for="TypeHidden"/>
+                                <button type="submit" >Update</button>
+                            </div>
+                        </form>
+                    </td>
+                    <td><a href="Delete?naam=@type.ProductT" style="color: black; cursor: pointer;">Delete</a></td>
+                </tr>
+            }
+        </table>        
+    </div>
 </div>
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "R2v86ZFTYI3uNUDzILrHIKshpIbCcGFqmpGkHevzgBM=",
+  "Hash": "+uNnyXYCV6AzNFR08TUYyYzGu9xNIbZGj+dxRQlNui4=",
   "Source": "webshop",
   "BasePath": "_content/webshop",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\media\\main.png"
     },
     {
+      "Identity": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\047c04a0-04f9-4e93-84f4-26a466966305.jpg",
+      "SourceId": "webshop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\",
+      "BasePath": "_content/webshop",
+      "RelativePath": "uploads/047c04a0-04f9-4e93-84f4-26a466966305.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\047c04a0-04f9-4e93-84f4-26a466966305.jpg"
+    },
+    {
       "Identity": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\10331b02-7894-4f1d-afa3-3ffe9fd198c5.jpg",
       "SourceId": "webshop",
       "SourceType": "Discovered",
@@ -1173,6 +1190,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\7954ee7e-b492-44b4-a23c-cb8c697d7de0.png"
     },
     {
+      "Identity": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\a9b4ae79-8157-40d4-b366-3713313926ea.jpg",
+      "SourceId": "webshop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\",
+      "BasePath": "_content/webshop",
+      "RelativePath": "uploads/a9b4ae79-8157-40d4-b366-3713313926ea.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\a9b4ae79-8157-40d4-b366-3713313926ea.jpg"
+    },
+    {
       "Identity": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\bb25ee2a-adb5-49b7-8872-458bff360b5d.png",
       "SourceId": "webshop",
       "SourceType": "Discovered",
@@ -1188,6 +1222,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\bb25ee2a-adb5-49b7-8872-458bff360b5d.png"
+    },
+    {
+      "Identity": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\d423ef95-3f53-4922-bc61-b4f994c1ac9b.jpg",
+      "SourceId": "webshop",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\",
+      "BasePath": "_content/webshop",
+      "RelativePath": "uploads/d423ef95-3f53-4922-bc61-b4f994c1ac9b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\d423ef95-3f53-4922-bc61-b4f994c1ac9b.jpg"
     },
     {
       "Identity": "C:\\Users\\lynxd\\Documents\\GitHub\\webshop1.0\\webshop\\webshop\\wwwroot\\uploads\\fc15bea5-7442-4139-9a20-e06438c84080.png",
