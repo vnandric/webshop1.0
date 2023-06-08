@@ -5,10 +5,26 @@
 }
 
 <style>
-    
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;   
+        justify-content: center;
+    }
+
+    .product-img {
+        width: 700px;
+        height: auto;
+    }
+
+    .container-product {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+    }
 </style>
 
 <div>
+
     <img style="width: 100vw; height: 600px; object-fit: cover; margin-right: 5px;" src="media/main.png" />
 
     <div class="about" id="about">
@@ -27,12 +43,23 @@
         </div>
 
         <div class="container">
-            @foreach (var product in Model.Producten)
-            {                
-                <img src="@product.FilePath">
-                <div>@product.naam</div>
-                <div>@product.prijs</div>
-            }
+
+            <div class="product-container">
+                @foreach (var product in Model.Producten)
+                {
+                    <div class="container-product">
+                        <img class="product-img" src="@product.FilePath">
+                        <div>@product.naam</div>
+                        <div>@product.prijs</div>
+
+                        @if (string.IsNullOrEmpty("Username"))
+                        {
+                            <a href="Delete?product=@product.FilePath&ID=@product.ID" style="color: black; cursor: pointer;">Delete</a>
+                        }
+                    </div>
+                }
+            </div>
+
         </div>
     </div>
 </div>
