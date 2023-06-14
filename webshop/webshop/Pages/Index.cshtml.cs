@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.Sqlite;
+using System.Text.Json;
 
 namespace webshop.Pages
 {
@@ -57,20 +58,49 @@ namespace webshop.Pages
             }
             return Page();
         }
+
+        public RedirectToPageResult OnPostAddToCart(string id)
+        {
+            //Haalt de data uit de shopping cart session
+            Dictionary<string, int> shoppingCart = HttpContext.Session.Get<Dictionary<string, int>>("ShoppingCart") ?? new Dictionary<string, int>();
+            if (shoppingCart.ContainsKey(id))
+            {
+                shoppingCart[id] += 1;
+            }
+            else
+            {
+                shoppingCart[id] = 1;
+            }
+
+            // Slaat de dingetje op :)
+            HttpContext.Session.Set("ShoppingCart", shoppingCart);
+
+            return RedirectToPage("Index");
+        }
     }
+
+    public static class SessionExtensions
+    {
+        public static void Set<T>(this ISession session, string key, T value)
+        {
+            session.SetString(key, JsonSerializer.Serialize(value));
+        }
+
+        public static T Get<T>(this ISession session, string key)
+        {
+            var value = session.GetString(key);
+            return value == null ? default(T) : JsonSerializer.Deserialize<T>(value);
+        }
+    }
+
 
     public class ProductModel 
     {
         public string ID { get; set; }
         public string PT_naam { get; set; }
         public string prijs { get; set; }
-
-        public string img { get; set; }
-        
+        public string img { get; set; }        
         public string naam { get; set; }
-
         public string FilePath { get; set; }
-
-
     }
 }

@@ -76,13 +76,17 @@
         font-size: 1.2rem;
         margin-right: 5px;
     }
+    
+    .cart {
+        margin: 20px;
+    }
 </style>
 
 <body>
     <header>
         @{
             var username = Context.Request.HttpContext.Session.GetString("Username");
-            var customerName = Context.Request.HttpContext.Session.GetString("CustomerName");
+            var customerName = Context.Request.HttpContext.Session.GetString("CustomerName");      
         }
 
         <div class="head-container">
@@ -123,6 +127,12 @@
                         <a href="Inlog">Log In<i class="fa-solid fa-right-to-bracket" style="color: #000000; margin-left: 2.5px;"></i></a>                        
                     </div>
                 }
+
+                <div class="cart">
+                    <a href="Cart">
+                        <img style="width: 40px; height: auto;" src="/media/cart-shopping-solid.svg" alt="svg/png" />
+                    </a>                    
+                </div>
             </div>
             
         </div>

@@ -40,7 +40,7 @@
     <div class="main" id="producten">
         <div>
             <h2>Products we sell</h2>
-        </div>
+        </div>  
 
         <div class="container">
 
@@ -56,6 +56,13 @@
                         {
                             <a href="Delete?product=@product.FilePath&ID=@product.ID" style="color: black; cursor: pointer;">Delete</a>
                         }
+
+                        <form asp-page-handler="AddToCart" method="post">
+                            <input type="hidden" name="id" value="@product.ID" />
+                            <button type="submit" class="btn btn-outline-primary">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </form>
                     </div>
                 }
             </div>
