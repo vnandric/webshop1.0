@@ -20,7 +20,37 @@
         display: flex;
         flex-direction: column;
         margin: 20px;
+        align-items:center;
     }
+
+    .custom-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f2f2f2;
+        color: #333;
+        cursor: pointer;
+    }
+
+        .custom-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #007bff;
+        }
+
+        .custom-select option {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+            .custom-select option:checked {
+                background-color: #007bff;
+                color: #fff;
+            }
+
 </style>
 
 <div>
@@ -40,19 +70,32 @@
     <div class="main" id="producten">
         <div>
             <h2>Products we sell</h2>
-        </div>  
+
+            
+        </div>
+        <div>
+            <label>Filter: </label>
+            <select id="mySelect" onchange="handleSelectChange()" class="custom-select">
+                <option name="Filter" value="">Alles</option>
+                @for (var i = 0; i < Model.PT_naam.Length; i++)
+                {
+                    <option name="Filter" value="@Model.PT_naam[i]">@Model.PT_naam[i]</option>
+                }
+            </select>
+        </div>
 
         <div class="container">
+                
 
             <div class="product-container">
                 @foreach (var product in Model.Producten)
                 {
-                    <div class="container-product">
+                    <div class="container-product @product.PT_naam">
                         <img class="product-img" src="@product.FilePath">
                         <div>@product.naam</div>
                         <div>@product.prijs</div>
 
-                        @if (string.IsNullOrEmpty("Username"))
+                        @if (!string.IsNullOrEmpty("Username"))
                         {
                             <a href="Delete?product=@product.FilePath&ID=@product.ID" style="color: black; cursor: pointer;">Delete</a>
                         }
@@ -66,6 +109,8 @@
                     </div>
                 }
             </div>
+
+            
 
         </div>
     </div>

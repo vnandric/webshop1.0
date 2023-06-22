@@ -13,6 +13,13 @@ namespace webshop.Pages
 
         public List<ProductModel> Producten { get; set; }
 
+        public List<TypeModel> Type { get; set; }
+
+        [BindProperty]
+        public string Filter { get; set; }
+
+        public string[] PT_naam;
+
         public IndexModel(IWebHostEnvironment webHostEnvironment)
         {
             _uploadFolderPath = Path.Combine(webHostEnvironment.WebRootPath, "uploads");
@@ -25,8 +32,44 @@ namespace webshop.Pages
             return RedirectToPage("/Index");
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet( string filterOption)
         {
+            using (var connection = new SqliteConnection($"Data Source={_dbPath}"))
+            {
+                connection.Open();
+
+                var selectCommand = connection.CreateCommand();
+                selectCommand.CommandText = "SELECT * FROM product_type";
+
+                var kaas = new List<string>();
+                using (var reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        kaas.Add(reader.GetString(0));
+                    }
+                }
+                this.PT_naam = kaas.ToArray();
+
+                var types = new List<TypeModel>();
+
+                using (var reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var product_type = new TypeModel()
+                        {
+                            naam = reader.GetString(0)
+                        };
+
+                        types.Add(product_type);
+                    }
+
+                }
+
+                Type = types;
+            }
+
             using (var connection = new SqliteConnection($"Data Source={_dbPath}"))
             {
                 connection.Open();
@@ -56,6 +99,9 @@ namespace webshop.Pages
 
                 Producten = producten;
             }
+
+            
+
             return Page();
         }
 
@@ -102,5 +148,10 @@ namespace webshop.Pages
         public string img { get; set; }        
         public string naam { get; set; }
         public string FilePath { get; set; }
+    }
+
+    public class TypeModel
+    {
+        public string naam { get; set; }
     }
 }

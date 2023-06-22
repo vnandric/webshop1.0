@@ -4,72 +4,157 @@
     ViewData["Title"] = "Upload";
 }
 
-<div class="main">
-    <h1>Upload product</h1>
-
-    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-    {
-        <div>@Model.ErrorMessage</div>
+<style>
+    /* CSS styles for the form */
+    .form-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
     }
 
-    <form method="post" enctype="multipart/form-data" asp-page-handler="Form1">
-        <div>
-            <label for="PT_naam">Type:</label>
-            <select asp-for="PT_naam" required>
-                @for(var i = 0; i < Model.PT_name.Length; i++)
-                {
-                    <option>@Model.PT_name[i]</option>
-                }
-            </select>
-        </div>
-        <div>
-            <label for="prijs">prijs:</label>
-            <input type="number" id="prijs" name="Prijs" asp-for="Prijs" required>
-        </div>
-        <div>
-            <label for="uploadedFiles">Select Photo:</label>
-            <input type="file" id="uploadedFiles" name="UploadedFiles" asp-for="UploadedFiles" multiple required>
-        </div>
-        <div>
-            <label for="naam">Naam product:</label>
-            <input type="text" id="naam" name="Naam" asp-for="Naam" required>
-        </div>
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
 
-        <button type="submit">Upload</button>
-    </form>
+        .form-container input[type="text"],
+        .form-container input[type="number"],
+        .form-container select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
 
-    <h1>Add product type</h1>
+        .form-container input[type="file"] {
+            margin-bottom: 10px;
+        }
 
-    <form method="post" asp-page-handler="Form2">
-        <div>
-            <label for="productType">Product type:</label>
-            <input type="text" id="productType" asp-for="ProductType"/>
-        </div>
+        .form-container .btn {
+            background-color: #8AFFFF;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-        <button type="submit">Submit</button>
-    </form>
+            .form-container .btn:hover {
+                background-color: #00FFFF;
+            }
 
-    <h1>Edit and delete product types</h1>
+    /* CSS styles for the table */
+    .table-container {
+        max-width: 500px;
+        margin: 20px auto;
+    }
 
-    <div>
+        .table-container table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-container th,
+        .table-container td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table-container th {
+            background-color: #f2f2f2;
+        }
+
+        .table-container a {
+            color: black;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+            .table-container a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="main">
+    
+
+    <div class="form-container">
+        <h1>Upload product</h1>
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div>@Model.ErrorMessage</div>
+        }
+
+        <form method="post" enctype="multipart/form-data" asp-page-handler="Form1">
+            <div>
+                <label for="PT_naam">Type:</label>
+                <select asp-for="PT_naam" required>
+                    @for (var i = 0; i < Model.PT_name.Length; i++)
+                    {
+                        <option>@Model.PT_name[i]</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <label for="prijs">Prijs:</label>
+                <input type="number" id="prijs" name="Prijs" asp-for="Prijs" required>
+            </div>
+            <div>
+                <label for="uploadedFiles">Select Photo:</label>
+                <input type="file" id="uploadedFiles" name="UploadedFiles" asp-for="UploadedFiles" multiple required>
+            </div>
+            <div>
+                <label for="naam">Naam product:</label>
+                <input type="text" id="naam" name="Naam" asp-for="Naam" required>
+            </div>
+            <div>
+                <button type="submit" class="btn">Upload</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h1>Add product type</h1>
+
+        <form method="post" asp-page-handler="Form2">
+            <div>
+                <label for="productType">Product type:</label>
+                <input type="text" id="productType" asp-for="ProductType" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <h1>Edit and delete product types</h1>
+
         <table>
             @foreach (var type in Model.Types)
             {
-            <tr>
+                <tr>
                     <td><label>@type.ProductT</label></td>
                     <td>
                         <form method="post" asp-page-handler="Update">
                             <div>
-                                <input type="text" id="type" asp-for="Type"/>
-                                <input type="hidden" value="@type.ProductT" asp-for="TypeHidden"/>
-                                <button type="submit" >Update</button>
+                                <input type="text" id="type" asp-for="Type" required>
+                                <input type="hidden" value="@type.ProductT" asp-for="TypeHidden">
+                                <button type="submit" class="btn">Update</button>
                             </div>
                         </form>
                     </td>
-                    <td><a href="DeleteU?naam=@type.ProductT" style="color: black; cursor: pointer;">Delete</a></td>
+                    <td>
+                        <a href="DeleteU?naam=@type.ProductT">Delete</a>
+                    </td>
                 </tr>
             }
-        </table>        
+        </table>
     </div>
+
 </div>
 

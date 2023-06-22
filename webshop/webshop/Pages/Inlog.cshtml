@@ -5,23 +5,73 @@
 @inject IModelExpressionProvider ModelExpressionProvider
 
 <style>
+    /* CSS styles for the form */
+    form {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+    }
 
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .input[type="text"],
+    .input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    button[type="submit"] {
+        background-color: #8AFFFF;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #00FFFF;
+        }
+
+    /* CSS styles for the link */
+    .register-link {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+        .register-link a {
+            color: #00FFFF;
+            text-decoration: none;
+        }
+
+            .register-link a:hover {
+                text-decoration: underline;
+            }
 </style>
 
 <div class="main">
     <form method="post">
         <div>
-            <label for="username" class="">username:</label>
-            <input type="text" id="username" asp-for="CustomerName" />
+            <label for="username">Username:</label>
+            <input class="input" type="text" id="username" asp-for="CustomerName" />
         </div>
         <div>
-            <label for="password" class="">password:</label>
-            <input type="password" id="password" asp-for="Password" />
+            <label for="password">Password:</label>
+            <input class="input" type="password" id="password" asp-for="Password" />
         </div>
-        <button typeof="submit" class="">Login</button>
+        <button type="submit">Login</button>
     </form>
 
-    <div>
+    <div class="register-link">
         <p>Nog geen account? <a href="Register">Registreer</a></p>
     </div>
 </div>
