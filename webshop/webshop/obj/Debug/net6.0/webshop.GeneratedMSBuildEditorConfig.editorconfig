@@ -16,6 +16,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\lynxd\Documents\GitHub\webshop1.0\webshop\webshop
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/DeleteU.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlVS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,12 +40,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/Inlog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5sb2cuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/upload.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcdXBsb2FkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lynxd/Documents/GitHub/webshop1.0/webshop/webshop/Pages/_ViewImports.cshtml]

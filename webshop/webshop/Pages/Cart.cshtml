@@ -1,0 +1,79 @@
+﻿@page
+@model webshop.Pages.CartModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h2>Uw winkelwagen</h2>
+ 
+
+@if (Model.CartItems.Count == 0)
+{
+    <p>U heeft geen producten in uw winkel karretje!</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Prijs</th>
+                <th>Aantal</th>
+                <th>Subtototaal</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.Naam</td>
+                    <td>€@item.Prijs.ToString()</td>
+                    <td>@item.Quantity</td>
+                    <td>€@(item.Prijs * item.Quantity)</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <div class="text-right">
+        <h4>Totaal aantal producten: @Model.CartItems.Sum(x => x.Quantity).ToString()</h4>
+    </div>
+
+    <div class="text-right">
+        <h4>Totaal: €@Model.CartItems.Sum(x => x.Prijs * x.Quantity).ToString()</h4>
+    </div> 
+
+    <style>
+        .btn:hover {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        } 
+
+        .btn-clear {
+            color: #007bff;
+            background-color: transparent;
+            border-color: #007bff;
+        }
+
+ 
+        .btn-clear:hover {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+    </style> 
+
+    <form method="post" asp-page-handler="EmptyCart">
+        <button type="submit" class="btn btn-clear">
+            <i class="fas fa-trash"></i> Leeg winkelkarretje
+        </button>
+        <input type="hidden" name="handler" value="EmptyCart" />
+    </form>
+    
+    <a href="#">
+        <button class="btn btn-clear">
+            <i class="fas fa-shopping-cart"></i> Bestellen
+        </button>
+    </a>
+}

@@ -1,0 +1,22 @@
+﻿@page
+@model webshop.Pages.Shared.RegisterModel
+@{
+}
+
+<div class="main">
+    <form method="post">
+        <div class="form-group">
+            <label for="customerName" class="form-label">Username:</label>
+            <input type="text" class="form-control" id="customerName" asp-for="Customer.CustomerName">
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="password" asp-for="Customer.Password">
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword" class="form-label">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirmPassword" asp-for="Customer.ConfirmPassword">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </form>
+</div>

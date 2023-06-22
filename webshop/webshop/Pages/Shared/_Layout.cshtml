@@ -6,39 +6,186 @@
     <title>@ViewData["Title"] - webshop</title>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/webshop.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
+<style>
+    .head-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .head {
+        width: 80vw;
+        height: 100px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: -10px;
+    }
+
+    .left label {
+        font-size: 2rem;
+    }
+
+    .bar-container {
+        display: flex;
+    }
+
+    .bar-container div {
+        width: 45px;
+        height: 40px;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .bar-container input {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border: 1.5px solid black;
+        width: 350px;
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        width: 20vw;
+    }
+
+    .l-container a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    .right form button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .welkom {
+        font-size: 1.2rem;
+        margin-right: 5px;
+    }
+    
+    .cart {
+        margin: 20px;
+    }
+
+    footer {
+        margin-top: 100px;
+        height: 300px;
+        width: 100vw;
+        background-color: #00FFFF;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+</style>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">webshop</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        @{
+            var username = Context.Request.HttpContext.Session.GetString("Username");
+            var customerName = Context.Request.HttpContext.Session.GetString("CustomerName");      
+        }
+
+        <div class="head-container">
+            <div class="head">
+                <div class="left">
+                    <label>DevNeeds</label>
+                </div>
+
+                <div class="middle">
+                    <div class="bar-container">
+                        <input type="text"/>
+                        <div type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="right">                
+                @if (!string.IsNullOrEmpty(username))
+                {
+                    <div class="welkom">Welkom @username</div>
+                }
+                
+                @if(!string.IsNullOrEmpty(customerName))
+                {
+                    <div class="welkom">Welkom @customerName</div>
+                }
+
+                @if (!string.IsNullOrEmpty(username) || !string.IsNullOrEmpty(customerName))
+                {                    
+                    <form method="post" asp-page="Index" asp-page-handler="logout">
+                            <button type="submit">Logout<i class="fa-solid fa-right-to-bracket" style="color: #000000; margin-left: 2.5px;"></i></button>
+                    </form>
+                }
+                else
+                {
+                    <div class="l-container">
+                        <a href="Inlog">Log In<i class="fa-solid fa-right-to-bracket" style="color: #000000; margin-left: 2.5px;"></i></a>                        
+                    </div>
+                }
+
+                <div class="cart">
+                    <a href="Cart">
+                        <img style="width: 40px; height: auto;" src="/media/cart-shopping-solid.svg" alt="svg/png" />
+                    </a>                    
                 </div>
             </div>
-        </nav>
+            
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="Index">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About us</a>
+                </li>
+                <li>
+                    <a href="#producten">Producten</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+                <li>
+                    <a href="Admin">Admin</a>
+                </li>
+            </ul>
+        </nav>   
+        @if (!string.IsNullOrEmpty(username))
+        {
+            <nav>
+                <ul>
+                    <li>
+                        <a href="upload">Upload product</a>
+                    </li>
+                </ul>                
+            </nav>
+            
+        }
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - webshop - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
+    <footer>
+        <h2>Made by Valentino Andric</h2>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

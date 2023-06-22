@@ -1,9 +1,117 @@
 ﻿@page
-@model IndexModel
+@model webshop.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Dev Needs";
 }
 
+<style>
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;   
+        justify-content: center;
+    }
+
+    .product-img {
+        width: 700px;
+        height: auto;
+    }
+
+    .container-product {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        align-items:center;
+    }
+
+    .custom-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f2f2f2;
+        color: #333;
+        cursor: pointer;
+    }
+
+        .custom-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #007bff;
+        }
+
+        .custom-select option {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+            .custom-select option:checked {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+</style>
+
 <div>
-    <img style="width: 100vw;" src="media/main.png"/>
+
+    <img style="width: 100vw; height: 600px; object-fit: cover; margin-right: 5px;" src="media/main.png" />
+
+    <div class="about" id="about">
+        <h1>About us</h1>
+        <p>
+            Hallo en welkom bij onze webshop waar wij producten verkopen voor developers die hun set-up willen upgraden met handige tools.
+            Wij houden ons graag bezig met daadwerkelijke tools om bijvoorbeeld je set-up schoon te houden, of een tool voor je telefoon op te laden zonder een oplader te gebruiken etc.
+            Het gaat er dus bij ons om dat je fijn en ongehinderd achter een PC kan zitten met volledige focus. Hier onder dus een assortiment met de producten die wij
+            verkopen. Bij vragen kunt u verder scrollen en kunt u uw vragen stellen met u contact gegevens.
+        </p>
+    </div>
+
+    <div class="main" id="producten">
+        <div>
+            <h2>Products we sell</h2>
+
+            
+        </div>
+        <div>
+            <label>Filter: </label>
+            <select id="mySelect" onchange="handleSelectChange()" class="custom-select">
+                <option name="Filter" value="">Alles</option>
+                @for (var i = 0; i < Model.PT_naam.Length; i++)
+                {
+                    <option name="Filter" value="@Model.PT_naam[i]">@Model.PT_naam[i]</option>
+                }
+            </select>
+        </div>
+
+        <div class="container">
+                
+
+            <div class="product-container">
+                @foreach (var product in Model.Producten)
+                {
+                    <div class="container-product @product.PT_naam">
+                        <img class="product-img" src="@product.FilePath">
+                        <div>@product.naam</div>
+                        <div>@product.prijs</div>
+
+                        @if (!string.IsNullOrEmpty("Username"))
+                        {
+                            <a href="Delete?product=@product.FilePath&ID=@product.ID" style="color: black; cursor: pointer;">Delete</a>
+                        }
+
+                        <form asp-page-handler="AddToCart" method="post">
+                            <input type="hidden" name="id" value="@product.ID" />
+                            <button type="submit" class="btn btn-outline-primary">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </form>
+                    </div>
+                }
+            </div>
+
+            
+
+        </div>
+    </div>
 </div>
